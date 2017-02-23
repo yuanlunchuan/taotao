@@ -7,13 +7,13 @@ import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 
-@Service
+@Service(value = "itemService")
 public class ItemServiceImpl implements ItemService {
-	@Autowired
-	private TbItemMapper itemMapper;
+	//@Autowired
+	//private TbItemMapper itemMapper;
 
-	@Override
 	public TbItem getItemById(Long itemId) {
-		return itemMapper.selectByPrimaryKey(itemId);
+		return new TbItem();
+		//return itemMapper.selectByPrimaryKey(itemId);
 	}
 }

@@ -14,13 +14,18 @@ import com.taotao.service.ItemService;
 @RequestMapping("/")
 public class ItemController {
 	@Autowired
-	private ItemService itemService;
+	private ItemService itemServiceImpl;
 	
-	@RequestMapping(value="/item/{itemId}", method=RequestMethod.GET)
+	@RequestMapping(value="item/{itemId}", method=RequestMethod.GET)
 	@ResponseBody
 	public TbItem getTbItemById(@PathVariable("itemId") Long itemId){
-		return itemService.getItemById(itemId);
+		System.out.println("------itemId: "+itemId);
+		return itemServiceImpl.getItemById(itemId);
 	}
 	
-
+	@RequestMapping(value="users", method=RequestMethod.GET)
+	@ResponseBody
+	public TbItem getAllTbItem(){
+		return new TbItem();
+	}
 }
