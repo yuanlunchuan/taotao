@@ -1,6 +1,7 @@
 package com.taotao.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +15,14 @@ import com.taotao.service.ItemService;
 @RequestMapping("/")
 public class ItemController {
 	@Autowired
-	private ItemService itemServiceImpl;
-	
+	@Qualifier("itemService")
+	private ItemService itemService;
+
 	@RequestMapping(value="item/{itemId}", method=RequestMethod.GET)
 	@ResponseBody
-	public TbItem getTbItemById(@PathVariable("itemId") Long itemId){
+	public TbItem getTbItemById(@PathVariable(value="itemId") Long itemId){
 		System.out.println("------itemId: "+itemId);
-		return itemServiceImpl.getItemById(itemId);
+		return itemService.getItemById(itemId);
 	}
 	
 	@RequestMapping(value="users", method=RequestMethod.GET)

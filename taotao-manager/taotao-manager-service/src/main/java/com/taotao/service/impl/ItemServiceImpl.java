@@ -12,8 +12,9 @@ public class ItemServiceImpl implements ItemService {
 	//@Autowired
 	//private TbItemMapper itemMapper;
 
-	public TbItem getItemById(Long itemId) {
+	@Override
+	public TbItem getItemById(long itemId) {
+		System.out.println("-------line 17");
 		return new TbItem();
-		//return itemMapper.selectByPrimaryKey(itemId);
 	}
 }

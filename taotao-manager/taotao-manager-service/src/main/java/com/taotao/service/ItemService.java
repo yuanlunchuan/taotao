@@ -3,5 +3,5 @@ package com.taotao.service;
 import com.taotao.pojo.TbItem;
 
 public interface ItemService {
-	public TbItem getItemById(Long itemId);
+	TbItem getItemById(long itemId);
 }
